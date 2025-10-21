@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "technologies": "Tecnologías",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "title": "Desarrollador Full Stack",
+    "description": "Creando experiencias web modernas e innovadoras",
+    "cta": "Contáctame"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "content": "Desarrollador apasionado por crear soluciones web modernas y escalables."
+  },
+  "technologies": {
+    "title": "Tecnologías",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Bases de datos",
+      "tools": "Herramientas"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "viewDemo": "Ver Demo",
+    "viewCode": "Ver Código",
+    "technologies": "Tecnologías",
+    "gallery": "Galería"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
+    "name": "Nombre",
+    "email": "Email",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "Error al enviar el mensaje. Inténtalo de nuevo.",
+    "validation": {
+      "nameRequired": "El nombre es requerido",
+      "nameMin": "El nombre debe tener al menos 3 caracteres",
+      "nameMax": "El nombre no puede tener más de 50 caracteres",
+      "emailRequired": "El email es requerido",
+      "emailInvalid": "Email inválido",
+      "messageRequired": "El mensaje es requerido",
+      "messageMin": "El mensaje debe tener al menos 10 caracteres",
+      "messageMax": "El mensaje no puede tener más de 500 caracteres"
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "madeWith": "Hecho con",
+    "by": "por"
+  }
+}
