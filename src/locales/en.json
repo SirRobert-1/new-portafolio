@@ -14,7 +14,23 @@
   },
   "about": {
     "title": "About Me",
-    "content": "Passionate developer creating modern and scalable web solutions."
+    "content": "Passionate developer creating modern and scalable web solutions with cutting-edge technologies. Specialized in full-stack development with a focus on user experience and performance.",
+    "experience": {
+      "years": "3+ Years",
+      "label": "of Experience"
+    },
+    "projects": {
+      "count": "20+",
+      "label": "Completed Projects"
+    },
+    "technologies": {
+      "count": "15+",
+      "label": "Technologies"
+    },
+    "specialties": {
+      "title": "Specialties",
+      "list": "Web Development, Mobile Apps, RESTful APIs, Databases, UI/UX Design"
+    }
   },
   "technologies": {
     "title": "Technologies",
@@ -30,7 +46,8 @@
     "viewDemo": "View Demo",
     "viewCode": "View Code",
     "technologies": "Technologies",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "description": "Description"
   },
   "contact": {
     "title": "Contact",

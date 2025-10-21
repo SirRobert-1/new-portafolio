@@ -140,8 +140,11 @@ body {
 
 /* Ensure dark mode is always applied */
 html {
-  @apply dark;
   scroll-behavior: smooth;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 /* Container max-width */

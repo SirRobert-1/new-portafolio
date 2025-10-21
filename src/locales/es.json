@@ -14,7 +14,23 @@
   },
   "about": {
     "title": "Sobre mí",
-    "content": "Desarrollador apasionado por crear soluciones web modernas y escalables."
+    "content": "Desarrollador apasionado por crear soluciones web modernas y escalables con las últimas tecnologías. Especializado en desarrollo full-stack con enfoque en experiencia de usuario y rendimiento.",
+    "experience": {
+      "years": "3+ Años",
+      "label": "de Experiencia"
+    },
+    "projects": {
+      "count": "20+",
+      "label": "Proyectos Completados"
+    },
+    "technologies": {
+      "count": "15+",
+      "label": "Tecnologías"
+    },
+    "specialties": {
+      "title": "Especialidades",
+      "list": "Desarrollo Web, Aplicaciones Móviles, APIs RESTful, Bases de Datos, UI/UX Design"
+    }
   },
   "technologies": {
     "title": "Tecnologías",
@@ -30,7 +46,8 @@
     "viewDemo": "Ver Demo",
     "viewCode": "Ver Código",
     "technologies": "Tecnologías",
-    "gallery": "Galería"
+    "gallery": "Galería",
+    "description": "Descripción"
   },
   "contact": {
     "title": "Contacto",
