@@ -1,311 +1,453 @@
-# Seguimiento de Tareas - Landing Page Profesional
+# Seguimiento de Tareas - Portfolio Landing Page
 
-**Proyecto**: Portafolio Web Profesional con Aceternity UI
-**Fecha de Inicio**: 2025-10-20
 **Estado General**: ⏳ En Planificación
+**Progreso**: 0/92 tareas completadas
+**Fecha de inicio**: 2024-10-21
 
 ---
 
-## 📋 FASE 1: SETUP Y CONFIGURACIÓN
+## 📋 Fase 1: Configuración Inicial
 
 ### 1.1 Instalación de Dependencias
-- [ ] Instalar `next-i18next` para multiidioma
-- [ ] Instalar `react-hook-form` para formularios
-- [ ] Instalar `zod` para validación
-- [ ] Instalar `@sanity/client` y `@sanity/image-url`
-- [ ] Instalar `resend` para envío de emails
-- [ ] Instalar `framer-motion` (verificar si ya está)
-- [ ] Instalar `@tabler/icons-react` (iconos para Aceternity)
-- [ ] Actualizar `package.json`
+- [ ] Instalar framer-motion: `npm install framer-motion`
+- [ ] Instalar react-icons: `npm install react-icons`
+- [ ] Instalar react-hook-form: `npm install react-hook-form`
+- [ ] Instalar zod: `npm install zod`
+- [ ] Instalar @react-email/components: `npm install @react-email/components`
+- [ ] Instalar react-email: `npm install react-email` (opcional, para preview)
+- [ ] Actualizar @radix-ui/react-slot si es necesario
 
-### 1.2 Configuración de Tailwind CSS
-- [ ] Verificar configuración actual
-- [ ] Agregar colores personalizados dark mode
-- [ ] Configurar tipografía (Inter)
-- [ ] Agregar plugins necesarios
-
-### 1.3 Instalación de Componentes Aceternity
-- [ ] Instalar `AnimatedTooltip`
-- [ ] Instalar `3D Card` (CardContainer, CardBody, CardItem)
-- [ ] Instalar `FloatingNav`
-- [ ] Instalar `BackgroundBeams`
-- [ ] Instalar `HeroHighlight` y `Highlight`
-- [ ] Instalar `TypewriterEffect`
-- [ ] Instalar `BentoGrid` y `BentoGridItem`
-- [ ] Instalar `SparklesCore` (opcional)
-
-### 1.4 Setup de i18n
-- [ ] Crear archivos de configuración i18n
-- [ ] Crear traducción `es.json`
-- [ ] Crear traducción `en.json`
-- [ ] Configurar middleware de Next.js
-
-### 1.5 Variables de Entorno
-- [ ] Crear `.env.local`
-- [ ] Agregar `NEXT_PUBLIC_SANITY_PROJECT_ID`
-- [ ] Agregar `NEXT_PUBLIC_SANITY_DATASET`
-- [ ] Agregar `SANITY_API_TOKEN`
-- [ ] Agregar `RESEND_API_KEY`
-- [ ] Agregar `NEXT_PUBLIC_APP_URL`
+**Subtareas**: 7
+**Completadas**: 0/7 ✗
 
 ---
 
-## 📋 FASE 2: ESTRUCTURA BASE
+### 1.2 Componentes Aceternity
+- [ ] Agregar hero-highlight: `npx shadcn@latest add @aceternity/hero-highlight`
+- [ ] Agregar hero-parallax: `npx shadcn@latest add @aceternity/hero-parallax`
+- [ ] Agregar animated-tooltip: `npx shadcn@latest add @aceternity/animated-tooltip`
+- [ ] Agregar 3d-card: `npx shadcn@latest add @aceternity/3d-card`
+- [ ] Agregar animated-modal: `npx shadcn@latest add @aceternity/animated-modal`
+- [ ] Agregar input: `npx shadcn@latest add @aceternity/input`
+- [ ] Agregar text-generate-effect: `npx shadcn@latest add @aceternity/text-generate-effect`
 
-### 2.1 Layout Principal
-- [ ] Crear `app/layout.tsx` con providers
-- [ ] Configurar estructura base (NavBar, main, footer)
-- [ ] Aplicar estilos globales dark mode
-- [ ] Configurar fuentes (Inter)
-
-### 2.2 Navegación Flotante
-- [ ] Crear componente `FloatingNav`
-- [ ] Agregar items de navegación
-- [ ] Integrar `Language Switcher`
-- [ ] Estilos dark mode
-- [ ] Testing responsivo
-
-### 2.3 Language Switcher
-- [ ] Crear componente `LanguageSwitcher`
-- [ ] Integrar con i18n
-- [ ] Guardar preferencia en localStorage
-- [ ] Icono de idiomas (banderas o texto)
-- [ ] Posicionar en navegación
-
-### 2.4 Rutas Multiidioma
-- [ ] Configurar estructura de rutas `/es` y `/en`
-- [ ] Crear layout por idioma
-- [ ] Página principal por idioma
-- [ ] Redirección por preferencia del navegador
+**Subtareas**: 7
+**Completadas**: 0/7 ✗
 
 ---
 
-## 📋 FASE 3: SECCIONES CORE
+### 1.3 Configuración de Entorno
+- [ ] Crear/actualizar `.env.local` con credenciales Sanity
+- [ ] Agregar variable RESEND_API_KEY a `.env.local`
+- [ ] Configurar NEXT_PUBLIC_RESEND_FROM_EMAIL
+- [ ] Verificar variables de entorno Sanity existentes
+- [ ] Crear archivo `.env.example` con estructura necesaria
 
-### 3.1 Hero Section
-- [ ] Crear componente `Hero.tsx`
-- [ ] Integrar `BackgroundBeams`
-- [ ] Integrar `TypewriterEffect`
-- [ ] Integrar `HeroHighlight`
-- [ ] Traducir textos del Hero
-- [ ] CTA principal (botón "Ver Proyectos")
-- [ ] Responsive design
-- [ ] Animaciones suaves
-
-### 3.2 About Section
-- [ ] Crear componente `About.tsx`
-- [ ] Diseño con texto + imagen
-- [ ] Estadísticas destacadas (años, proyectos, etc)
-- [ ] Fade-in animations
-- [ ] Layout alternado izquierda/derecha
-- [ ] Traducir contenido
-- [ ] Responsivo mobile/tablet/desktop
-
-### 3.3 Technologies Section
-- [ ] Crear componente `Technologies.tsx`
-- [ ] Usar `AnimatedTooltip`
-- [ ] Agregar 6+ tecnologías (Next.js, React, Tailwind, etc)
-- [ ] Iconos para cada tecnología
-- [ ] Descripciones en tooltip
-- [ ] Grid responsive
-- [ ] Traducir nombres y descripciones
-
-### 3.4 Projects Section
-- [ ] Crear componente `Projects.tsx`
-- [ ] Usar `3D Card Effect`
-- [ ] Usar `BentoGrid` para layout
-- [ ] Diseño individual de card:
-  - [ ] Imagen del proyecto
-  - [ ] Título
-  - [ ] Descripción
-  - [ ] Tecnologías usadas
-  - [ ] Links (GitHub, Demo)
-- [ ] Traducir textos de proyectos
-- [ ] Responsivo
-
-### 3.5 Footer/Contact Preview
-- [ ] Crear componente `Footer.tsx`
-- [ ] Links de contacto
-- [ ] Social links
-- [ ] Copyright y fecha
+**Subtareas**: 5
+**Completadas**: 0/5 ✗
 
 ---
 
-## 📋 FASE 4: FORMULARIO Y CONTACTO
+### 1.4 Configuración Tailwind
+- [ ] Actualizar tailwind.config.js para tema oscuro
+- [ ] Configurar paleta de colores personalizados
+- [ ] Definir variables CSS para colores oscuros
+- [ ] Verificar compatibilidad con Aceternity components
+- [ ] Agregar estilos globales base
 
-### 4.1 Componente de Formulario
-- [ ] Crear componente `ContactForm.tsx`
-- [ ] Integrar `react-hook-form`
-- [ ] Campos: nombre, email, asunto, mensaje
-- [ ] Estilos con Tailwind dark mode
-- [ ] Responsive
-
-### 4.2 Validación con Zod
-- [ ] Crear schema `contactSchema`
-- [ ] Validar nombre (mínimo 2 caracteres)
-- [ ] Validar email (formato válido)
-- [ ] Validar asunto (mínimo 5 caracteres)
-- [ ] Validar mensaje (mínimo 10 caracteres)
-- [ ] Mensajes de error traducidos
-
-### 4.3 Integración Resend
-- [ ] Crear API route `/api/send-email`
-- [ ] Configurar Resend client
-- [ ] Template de email profesional
-- [ ] Envío de email desde formulario
-- [ ] Manejo de errores
-- [ ] Rate limiting (opcional)
-
-### 4.4 Feedback del Usuario
-- [ ] Mensaje de éxito al enviar
-- [ ] Indicador de loading
-- [ ] Manejo de errores con mensajes claros
-- [ ] Reset de formulario tras envío
-- [ ] Traducir mensajes de feedback
-
-### 4.5 Sección Contact en Landing
-- [ ] Crear componente `Contact.tsx`
-- [ ] Integrar formulario
-- [ ] Información de contacto adicional
-- [ ] Email de contacto
-- [ ] Social links
-- [ ] Background animado (opcional con SparklesCore)
+**Subtareas**: 5
+**Completadas**: 0/5 ✗
 
 ---
 
-## 📋 FASE 5: INTEGRACIONES EXTERNAS
+## 📋 Fase 2: Estructura Base (10 tareas)
 
-### 5.1 Sanity CMS Setup
-- [ ] Crear proyecto en Sanity
-- [ ] Definir schema para Proyectos
-- [ ] Definir schema para Configuración
-- [ ] Crear cliente Sanity en proyecto
-- [ ] Configurar API key
+### 2.1 Contexto de Internacionalización
+- [ ] Crear `src/context/LanguageContext.js`
+- [ ] Implementar provider con Spanish por defecto
+- [ ] Configurar localStorage para persistencia
+- [ ] Crear hook useLanguage personalizado
+- [ ] Agregar provider a `src/pages/_app.js`
 
-### 5.2 Queries y Datos
-- [ ] Query para obtener proyectos
-- [ ] Query para obtener configuración
-- [ ] Crear tipos TypeScript para datos
-- [ ] Implementar caché de datos
-- [ ] Testing de queries
-
-### 5.3 Integración en Components
-- [ ] Projects Section obtiene datos de Sanity
-- [ ] Fallback cuando no hay datos
-- [ ] Loading states
-- [ ] Error handling
-- [ ] Regeneración estática (ISR)
-
-### 5.4 Image Optimization
-- [ ] Usar `next/image` para imágenes Sanity
-- [ ] Configurar `@sanity/image-url`
-- [ ] Sizes responsivos
-- [ ] Formato moderno (webp)
+**Subtareas**: 5
+**Completadas**: 0/5 ✗
 
 ---
 
-## 📋 FASE 6: PULIDO Y DEPLOY
+### 2.2 Layout y Navegación
+- [ ] Crear `src/components/Layout.jsx` base
+- [ ] Implementar Header con navegación
+- [ ] Crear Footer con links
+- [ ] Agregar estilos tema oscuro
+- [ ] Integrar LanguageSwitcher en header y footer
 
-### 6.1 Testing Responsivo
-- [ ] Mobile (320px - 480px)
-- [ ] Tablet (481px - 768px)
-- [ ] Desktop (769px+)
-- [ ] Navegadores: Chrome, Firefox, Safari, Edge
-- [ ] Testing en dispositivos reales
+**Subtareas**: 5
+**Completadas**: 0/5 ✗
 
-### 6.2 Optimizaciones
+---
+
+## 📋 Fase 3: Componentes de Secciones (24 tareas)
+
+### 3.1 Sección Hero
+- [ ] Crear `src/components/sections/Hero.jsx`
+- [ ] Implementar hero-highlight component
+- [ ] Agregar nombre y título profesional
+- [ ] Crear botón CTA (desplazarse a contacto)
+- [ ] Agregar efectos de animación suave
+- [ ] Hacer responsive mobile/tablet/desktop
+- [ ] Agregar descripción corta
+- [ ] Traducir contenido (es/en)
+
+**Subtareas**: 8
+**Completadas**: 0/8 ✗
+
+---
+
+### 3.2 Sección About Me
+- [ ] Crear `src/components/sections/About.jsx`
+- [ ] Implementar text-generate-effect
+- [ ] Escribir biografía profesional
+- [ ] Agregar experiencia/background
+- [ ] Crear lista de especialidades
+- [ ] Hacer responsive
+- [ ] Agregar estilos tema oscuro
+- [ ] Traducir contenido (es/en)
+
+**Subtareas**: 8
+**Completadas**: 0/8 ✗
+
+---
+
+### 3.3 Sección Tecnologías
+- [ ] Crear `src/components/sections/Technologies.jsx`
+- [ ] Implementar animated-tooltip
+- [ ] Crear query GROQ para tecnologías
+- [ ] Fetch de tecnologías desde Sanity
+- [ ] Agrupar por categoría (Frontend, Backend, etc)
+- [ ] Mostrar icono + nombre en tooltip
+- [ ] Agregar descripción en hover
+- [ ] Hacer responsive
+- [ ] Traducir categorías (es/en)
+
+**Subtareas**: 9
+**Completadas**: 0/9 ✗
+
+---
+
+### 3.4 Sección Proyectos
+- [ ] Crear `src/components/sections/Projects.jsx`
+- [ ] Crear `src/components/ProjectCard.jsx` (3d-card)
+- [ ] Crear `src/components/ProjectModal.jsx` (animated-modal)
+- [ ] Implementar query GROQ para proyectos destacados
+- [ ] Fetch de proyectos desde Sanity
+- [ ] Renderizar cards con 3d-card
+- [ ] Mostrar modal al hacer clic
+- [ ] Renderizar portable text en modal
+- [ ] Mostrar galería en modal
+- [ ] Agregar links a demo/GitHub
+- [ ] Hacer responsive
+
+**Subtareas**: 11
+**Completadas**: 0/11 ✗
+
+---
+
+### 3.5 Sección Contacto
+- [ ] Crear `src/components/sections/Contact.jsx`
+- [ ] Usar inputs Aceternity
+- [ ] Implementar form con react-hook-form
+- [ ] Agregar validación con zod
+- [ ] Agregar campos: nombre, email, mensaje
+- [ ] Crear validador de email
+- [ ] Crear validador de mensaje (min 10 caracteres)
+- [ ] Agregar estado de loading
+- [ ] Hacer responsive
+
+**Subtareas**: 9
+**Completadas**: 0/9 ✗
+
+---
+
+## 📋 Fase 4: Integración Sanity (16 tareas)
+
+### 4.1 Queries GROQ
+- [ ] Crear query para obtener tecnologías ordenadas
+- [ ] Crear query para obtener proyectos destacados
+- [ ] Crear query para obtener proyecto por ID
+- [ ] Guardar queries en `src/lib/sanityQuery.js`
+- [ ] Documentar cada query con comentarios
+
+**Subtareas**: 5
+**Completadas**: 0/5 ✗
+
+---
+
+### 4.2 Cliente Sanity
+- [ ] Revisar `src/lib/sanity.js` existente
+- [ ] Crear `src/lib/imageUrl.js` con builder
+- [ ] Configurar optimización de imágenes
+- [ ] Implementar hotspot handling
+- [ ] Crear helper para URLs de imagen
+
+**Subtareas**: 5
+**Completadas**: 0/5 ✗
+
+---
+
+### 4.3 Fetching de Datos
+- [ ] Implementar getStaticProps en index.js para tecnologías
+- [ ] Implementar getStaticProps para proyectos
+- [ ] Configurar revalidation time
+- [ ] Agregar error handling
+- [ ] Crear fallback pages
+
+**Subtareas**: 5
+**Completadas**: 0/5 ✗
+
+---
+
+### 4.4 Portable Text Renderer
+- [ ] Crear componente personalizado para portable text
+- [ ] Soportar estilos (normal, h2, h3)
+- [ ] Soportar listas (bullet)
+- [ ] Soportar decorators (strong, em, code)
+- [ ] Aplicar estilos tema oscuro
+- [ ] Manejar bloques desconocidos
+
+**Subtareas**: 6
+**Completadas**: 0/6 ✗
+
+---
+
+## 📋 Fase 5: Formulario y Email (14 tareas)
+
+### 5.1 React Hook Form Setup
+- [ ] Configurar FormProvider en Contact section
+- [ ] Crear validaciones con zod schema
+- [ ] Validar nombre (min 3, max 50)
+- [ ] Validar email (formato correcto)
+- [ ] Validar mensaje (min 10, max 500)
+- [ ] Agregar mensajes de error personalizados
+
+**Subtareas**: 6
+**Completadas**: 0/6 ✗
+
+---
+
+### 5.2 API Route para Email
+- [ ] Crear `src/pages/api/contact.js`
+- [ ] Validar request POST
+- [ ] Validar datos con zod
+- [ ] Configurar cliente Resend
+- [ ] Implementar envío de email
+- [ ] Agregar error handling
+- [ ] Retornar response success/error
+
+**Subtareas**: 7
+**Completadas**: 0/7 ✗
+
+---
+
+### 5.3 React Email Template
+- [ ] Crear `src/emails/ContactEmail.jsx`
+- [ ] Implementar template profesional
+- [ ] Mostrar nombre del remitente
+- [ ] Mostrar email del remitente
+- [ ] Mostrar mensaje
+- [ ] Agregar branding/colores
+- [ ] Aplicar tema oscuro
+
+**Subtareas**: 7
+**Completadas**: 0/7 ✗
+
+---
+
+## 📋 Fase 6: Internacionalización (12 tareas)
+
+### 6.1 Archivos de Traducción
+- [ ] Crear `src/locales/es.json`
+- [ ] Crear `src/locales/en.json`
+- [ ] Traducir secciones Hero
+- [ ] Traducir secciones About
+- [ ] Traducir categorías de tecnologías
+- [ ] Traducir etiquetas de formulario
+- [ ] Traducir mensajes de validación
+- [ ] Traducir navegación
+
+**Subtareas**: 8
+**Completadas**: 0/8 ✗
+
+---
+
+### 6.2 Componente LanguageSwitcher
+- [ ] Crear `src/components/LanguageSwitcher.jsx`
+- [ ] Implementar selector es/en
+- [ ] Actualizar contexto al seleccionar
+- [ ] Guardar en localStorage
+- [ ] Aplicar estilos tema oscuro
+- [ ] Hacer accesible
+
+**Subtareas**: 6
+**Completadas**: 0/6 ✗
+
+---
+
+### 6.3 Meta Tags por Idioma
+- [ ] Crear helper para meta tags dinámicos
+- [ ] Generar og:title según idioma
+- [ ] Generar og:description según idioma
+- [ ] Configurar hreflang links
+- [ ] Agregar description meta
+- [ ] Configurar canonical URLs
+
+**Subtareas**: 6
+**Completadas**: 0/6 ✗
+
+---
+
+## 📋 Fase 7: Optimización y Testing (22 tareas)
+
+### 7.1 Optimización de Performance
+- [ ] Optimizar imágenes con Next.js Image
+- [ ] Implementar lazy loading
+- [ ] Configurar image optimization
+- [ ] Agregar blur placeholder
+- [ ] Reducir bundle size
 - [ ] Minificar CSS/JS
-- [ ] Lazy loading de imágenes
-- [ ] Code splitting
-- [ ] Tree shaking
-- [ ] Compression de assets
 
-### 6.3 SEO
-- [ ] Meta tags en todas las páginas
-- [ ] og:image, og:title, og:description
-- [ ] Twitter Card meta tags
-- [ ] robots.txt
-- [ ] sitemap.xml
-- [ ] Structured data (JSON-LD)
-- [ ] Validación con Google Search Console
-
-### 6.4 Accesibilidad
-- [ ] ARIA labels en botones
-- [ ] ARIA labels en iconos
-- [ ] Keyboard navigation completa (Tab, Enter, Esc)
-- [ ] Color contrast WCAG AA
-- [ ] Alt text en todas las imágenes
-- [ ] Form labels asociados
-- [ ] Focus visible states
-
-### 6.5 Performance
-- [ ] Lighthouse score > 90
-- [ ] Core Web Vitals optimizados
-- [ ] LCP < 2.5s
-- [ ] FID < 100ms
-- [ ] CLS < 0.1
-- [ ] Testing con PageSpeed Insights
-
-### 6.6 Deploy
-- [ ] Configurar Vercel o hosting
-- [ ] Setup de dominio
-- [ ] SSL/TLS certificado
-- [ ] CI/CD pipeline (GitHub Actions opcional)
-- [ ] Monitoring y error tracking
-
-### 6.7 Testing Final
-- [ ] Formulario funciona completamente
-- [ ] Emails se envían correctamente
-- [ ] Multiidioma sin errores
-- [ ] Animaciones fluidas
-- [ ] No hay console errors
-- [ ] Performance aceptable
-- [ ] Todo responsivo
+**Subtareas**: 6
+**Completadas**: 0/6 ✗
 
 ---
 
-## 📊 ESTADÍSTICAS DEL PROYECTO
+### 7.2 States y Feedback
+- [ ] Agregar loading state en form
+- [ ] Agregar success message
+- [ ] Agregar error message
+- [ ] Crear toast notifications (opcional)
+- [ ] Agregar spinner de carga
+- [ ] Crear mensaje de confirmación email
 
-**Total de Tareas**: 85+
-**Completadas**: 0
-**En Progreso**: 0
-**Pendientes**: 85+
-
----
-
-## 🎯 HITOS PRINCIPALES
-
-1. ✅ **Planificación completada** (Actual)
-2. ⏳ **Setup completado** (SIGUIENTE)
-3. ⏳ **Estructura base lista**
-4. ⏳ **Secciones core funcionales**
-5. ⏳ **Formulario e integraciones**
-6. ⏳ **Datos desde Sanity**
-7. ⏳ **Deployed a producción**
+**Subtareas**: 6
+**Completadas**: 0/6 ✗
 
 ---
 
-## 📝 NOTAS IMPORTANTES
+### 7.3 Testing Responsivo
+- [ ] Test mobile (iPhone 12, 13, 14)
+- [ ] Test tablet (iPad)
+- [ ] Test desktop (1920x1080, 2560x1440)
+- [ ] Test breakpoints Tailwind
+- [ ] Verificar touch interactions
+- [ ] Verificar scrolling suave
 
-- Mantener dark mode consistente en todas las secciones
-- Revisar responsive design en cada paso
-- Traducir TODO el contenido (no dejar defaults en inglés)
-- Testing de email (usar sandbox de Resend)
-- Documentar decisiones de diseño
-- Commits frecuentes con mensajes descriptivos
-
----
-
-## 🔄 PRÓXIMOS PASOS INMEDIATOS
-
-1. Comenzar Fase 1 (Setup y Configuración)
-2. Instalar todas las dependencias necesarias
-3. Configurar variables de entorno
-4. Crear estructura de carpetas
-5. Primer commit con setup base
+**Subtareas**: 6
+**Completadas**: 0/6 ✗
 
 ---
 
-**Última actualización**: 2025-10-20
-**Responsable**: Desarrollador
-**Estimación Total**: 3-4 semanas
+### 7.4 Testing de Funcionalidades
+- [ ] Test lenguaje switcher (español/inglés)
+- [ ] Test persistencia de idioma
+- [ ] Test validación de formulario
+- [ ] Test envío de email
+- [ ] Test recepción de emails
+- [ ] Test links a demo/GitHub
+- [ ] Test animaciones Aceternity
+
+**Subtareas**: 7
+**Completadas**: 0/7 ✗
+
+---
+
+### 7.5 Auditoría de Performance
+- [ ] Ejecutar Lighthouse audit
+- [ ] Verificar Core Web Vitals
+- [ ] Optimizar LCP (Largest Contentful Paint)
+- [ ] Optimizar FID (First Input Delay)
+- [ ] Optimizar CLS (Cumulative Layout Shift)
+- [ ] Revisar PSI score
+
+**Subtareas**: 6
+**Completadas**: 0/6 ✗
+
+---
+
+### 7.6 Cross-Browser Testing
+- [ ] Test en Chrome
+- [ ] Test en Firefox
+- [ ] Test en Safari
+- [ ] Test en Edge
+- [ ] Verificar compatibilidad CSS
+- [ ] Verificar compatibilidad JavaScript
+
+**Subtareas**: 6
+**Completadas**: 0/6 ✗
+
+---
+
+## 📋 Fase 8: Finalización (8 tareas)
+
+### 8.1 Revisión Final
+- [ ] Revisar código completo
+- [ ] Verificar best practices
+- [ ] Limpiar console.logs
+- [ ] Verificar variables de entorno
+
+**Subtareas**: 4
+**Completadas**: 0/4 ✗
+
+---
+
+### 8.2 Documentación
+- [ ] Documentar instrucciones de setup
+- [ ] Documentar variables de entorno
+- [ ] Crear README.md
+- [ ] Documentar estructura de carpetas
+
+**Subtareas**: 4
+**Completadas**: 0/4 ✗
+
+---
+
+## 📊 Resumen por Fase
+
+| Fase | Descripción | Tareas | Completadas | Progreso |
+|------|-------------|--------|-------------|----------|
+| 1 | Configuración Inicial | 22 | 0 | 0% |
+| 2 | Estructura Base | 10 | 0 | 0% |
+| 3 | Componentes de Secciones | 24 | 0 | 0% |
+| 4 | Integración Sanity | 16 | 0 | 0% |
+| 5 | Formulario y Email | 14 | 0 | 0% |
+| 6 | Internacionalización | 20 | 0 | 0% |
+| 7 | Optimización y Testing | 22 | 0 | 0% |
+| 8 | Finalización | 8 | 0 | 0% |
+| **TOTAL** | | **136** | **0** | **0%** |
+
+---
+
+## 🎯 Hitos Importantes
+
+1. **Semana 1**: Completar Fases 1-2 (Setup completo)
+2. **Semana 2**: Completar Fase 3 (Todas las secciones)
+3. **Semana 2-3**: Completar Fases 4-5 (Sanity + Email)
+4. **Semana 3**: Completar Fase 6 (i18n)
+5. **Semana 3-4**: Completar Fases 7-8 (Testing + Finalización)
+
+---
+
+## 📝 Notas de Desarrollo
+
+- Mantener estructura Pages Router (no migrar a App Router)
+- Implementar tema oscuro en todos los componentes
+- Usar Framer Motion para animaciones suaves
+- Asegurar accesibilidad (ARIA labels, contrast, etc)
+- Optimizar imágenes con Next.js Image component
+- Validar formularios tanto cliente como servidor
+- Mantener código limpio y comentado
+
+---
+
+**Actualizado**: 2024-10-21
+**Versión**: 1.0
+**Responsable**: Developer

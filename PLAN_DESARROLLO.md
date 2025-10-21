@@ -1,293 +1,255 @@
-# Plan de Desarrollo - Landing Page Profesional
+# Plan de Desarrollo - Portfolio Landing Page
 
-## Resumen del Proyecto
-Crear una landing page moderna y profesional para un portafolio de programador con componentes animados de Aceternity UI, diseño dark mode, y soporte multiidioma (Español e Inglés).
+## Resumen Ejecutivo
+Desarrollo de una página de inicio profesional para un programador utilizando:
+- **Frontend**: Next.js 15 con Pages Router, Tailwind CSS 4
+- **Componentes**: Aceternity UI Library via ShadCn MCP
+- **CMS**: Sanity (proyectos y tecnologías)
+- **Email**: Resend con React Email
+- **i18n**: Español (es_MX) e Inglés (en_US)
 
 ---
 
-## 1. ARQUITECTURA Y TECNOLOGÍAS
+## Selección de Componentes Aceternity
 
-### Stack Tecnológico
-- **Framework**: Next.js 15
-- **Estilado**: Tailwind CSS
-- **Componentes**: Aceternity UI (a través de shadcn)
-- **Validación**: React Hook Form + Zod
-- **Email**: Resend
-- **CMS/Datos**: Sanity
-- **Animaciones**: Framer Motion (incluido en Aceternity)
-- **Multiidioma**: i18n (next-i18next)
+### 1. Sección Hero
+**Componente**: `@aceternity/hero-highlight`
+- Efectos de resaltado de texto profesionales
+- Primera impresión impactante
+- Soporte para tema oscuro
 
-### Estructura de Carpetas Recomendada
+### 2. Sección About Me
+**Componente**: `@aceternity/text-generate-effect`
+- Generación animada de texto para presentación personal
+- Layout limpio y legible
+
+### 3. Sección Tecnologías
+**Componente**: `@aceternity/animated-tooltip`
+- Perfecto para mostrar stack tecnológico
+- Efectos interactivos al pasar el ratón
+- Muestra iconos con descripciones al hacer hover
+
+### 4. Sección Proyectos
+**Componente Principal**: `@aceternity/3d-card`
+- Efecto 3D inmersivo para proyectos
+- Muestra: título, descripción corta, imagen, badges
+
+**Modal**: `@aceternity/animated-modal`
+- Se abre al hacer clic en tarjeta
+- Contenido: descripción completa, galería (3 imágenes), enlaces, tecnologías
+
+### 5. Sección Contacto
+**Componente**: `@aceternity/input`
+- Inputs estilizados con estética Aceternity
+- Validación con react-hook-form + zod
+- Integración con Resend para envío de emails
+
+---
+
+## Stack Tecnológico Destacado
+
+**Tecnologías a destacar en el sitio:**
+- Next.js
+- ShadCn
+- Tailwind CSS
+- Sanity
+- React Hook Form
+- Zod
+- Supabase
+
+---
+
+## Estructura de Carpetas
+
 ```
 src/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx
-│   ├── [locale]/
-│   │   ├── layout.tsx
-│   │   └── page.tsx
+├── pages/
+│   ├── index.js                    # Página de inicio
+│   ├── api/
+│   │   └── contact.js              # Endpoint Resend
+│   ├── _app.js                     # App con i18n provider
+│   └── _document.js
 ├── components/
-│   ├── ui/
-│   │   ├── animated-tooltip.tsx
-│   │   ├── 3d-card.tsx
-│   │   ├── floating-navbar.tsx
-│   │   └── ... (otros componentes de Aceternity)
+│   ├── ui/                         # Componentes Aceternity
 │   ├── sections/
-│   │   ├── Hero.tsx
-│   │   ├── About.tsx
-│   │   ├── Technologies.tsx
-│   │   ├── Projects.tsx
-│   │   └── Contact.tsx
-│   ├── Navigation.tsx
-│   └── LanguageSwitcher.tsx
+│   │   ├── Hero.jsx
+│   │   ├── About.jsx
+│   │   ├── Technologies.jsx
+│   │   ├── Projects.jsx
+│   │   └── Contact.jsx
+│   ├── ProjectCard.jsx             # Card 3D
+│   ├── ProjectModal.jsx            # Modal animado
+│   ├── LanguageSwitcher.jsx        # Toggle idioma
+│   └── Layout.jsx                  # Layout principal
+├── context/
+│   └── LanguageContext.js          # Contexto i18n
 ├── lib/
-│   ├── i18n.ts
-│   ├── sanity.ts
-│   └── resend.ts
-├── translations/
-│   ├── es.json
-│   ├── en.json
-└── types/
-    └── index.ts
+│   ├── sanity.js                   # Cliente Sanity
+│   ├── sanityQuery.js              # Queries GROQ
+│   ├── imageUrl.js                 # URL builder Sanity
+│   └── translations.js             # Helper traducciones
+├── locales/
+│   ├── es.json                     # Traducciones español
+│   └── en.json                     # Traducciones inglés
+├── emails/
+│   └── ContactEmail.jsx            # Template React Email
+└── styles/
+    └── globals.css                 # Estilos globales
 ```
 
 ---
 
-## 2. SECCIONES Y COMPONENTES RECOMENDADOS
+## Fases de Desarrollo
 
-### 2.1 Barra de Navegación
-**Componente**: FloatingNav (Aceternity)
-- Navegación intelligente que se oculta al bajar y aparece al subir
-- Links a: Home, About, Technologies, Projects, Contact
-- Language switcher integrado
-- Dark mode compatible
-
-### 2.2 Hero Section
-**Componentes**:
-- HeroHighlight con TypewriterEffect (Aceternity)
-- BackgroundBeams (Aceternity) de fondo
-- Typewriter: "Soy [Nombre] | Desarrollador Full Stack | Creador de Experiencias Digitales"
-- CTA prominente: "Ver Mis Proyectos"
-
-**Justificación**:
-- Impacto visual inmediato
-- Introduce al usuario de forma atractiva
-- TypewriterEffect crea engagement
-
-### 2.3 Sección "Acerca de Mí"
-**Componentes**:
-- Contenido textual con fade-in animation
-- Foto de perfil con efecto parallax
-- Breve descripción profesional
-- Estadísticas destacadas (años de experiencia, proyectos, clientes)
-
-**Diseño**:
-- Alternancia izquierda/derecha para texto e imagen
-- Responsive en mobile
-
-### 2.4 Sección Tecnologías
-**Componente**: AnimatedTooltip (Aceternity)
-- Mostrar tecnologías: Next.js, React, Tailwind CSS, Sanity, React Hook Form, Zod
-- Cada una con icono y descripción tooltip
-- Al hover muestra nombre completo y descripción breve
-- Distribución en grid responsivo
-
-**Justificación**:
-- AnimatedTooltip perfecto para mostrar skills
-- Interactivo y visualmente atractivo
-
-### 2.5 Sección Proyectos
-**Componentes**:
-- 3D Card Effect (Aceternity) para cada proyecto
-- BentoGrid (Aceternity) como layout
-- Cada card con: imagen, título, descripción, tecnologías, link
-
-**Datos**:
-- Traer de Sanity CMS
-- Mostrar 3-6 proyectos destacados
-- Cards con efecto 3D al hacer hover
-
-**Justificación**:
-- 3D Card Effect proporciona interactividad memorable
-- BentoGrid crea layout profesional y moderno
-
-### 2.6 Sección Contacto
-**Componentes**:
-- Formulario con React Hook Form + Zod
-- Integración con Resend para envío de emails
-- Validación en tiempo real
-- Mensaje de éxito/error
-- Background animado (SparklesCore opcional)
-
-**Campos**:
-- Nombre
-- Email
-- Asunto
-- Mensaje
-- Checkbox de privacidad
-
----
-
-## 3. SOPORTE MULTIIDIOMA
-
-### Idiomas Soportados
-- **Español** (es_MX): Variante de México
-- **Inglés** (en_MX): Variante México English
-
-### Implementación
-- Usar next-i18next para routing y traducciones
-- Archivos JSON de traducciones separados
-- Language switcher en navegación flotante
-- Persistencia en localStorage
-
-### Textos a Traducir
-- Navegación
-- Títulos de secciones
-- Descripciones
-- Labels de formulario
-- Mensajes de validación
-- CTAs
-
----
-
-## 4. DISEÑO Y ESTILOS
-
-### Color Scheme (Dark Mode)
-- **Fondo Principal**: `#0a0e27` (Azul marino oscuro)
-- **Fondo Secundario**: `#1a1f3a` (Azul más claro)
-- **Acentos**: `#10b981` (Verde esmeralda) / `#3b82f6` (Azul)
-- **Texto Principal**: `#ffffff` (Blanco)
-- **Texto Secundario**: `#cbd5e1` (Gris claro)
-
-### Tipografía
-- **Títulos**: Inter Bold/SemiBold
-- **Cuerpo**: Inter Regular/Medium
-
-### Responsive Design
-- Mobile First approach
-- Breakpoints: `sm: 640px`, `md: 768px`, `lg: 1024px`, `xl: 1280px`
-
----
-
-## 5. INTEGRACIONES
-
-### Sanity CMS
-- Modelos: Proyectos, Configuración, Blog (opcional)
-- Queries GROQ para obtener datos
-- Preview mode para cambios en tiempo real
-
-### Resend
-- API key en variables de entorno
-- Template de email con branding
-- Manejo de errores y reintentos
-- Rate limiting
-
-### Environment Variables
-```
-NEXT_PUBLIC_SANITY_PROJECT_ID=
-NEXT_PUBLIC_SANITY_DATASET=
-SANITY_API_TOKEN=
-RESEND_API_KEY=
-NEXT_PUBLIC_APP_URL=
-```
-
----
-
-## 6. OPTIMIZACIONES
-
-### Performance
-- Image optimization (Next.js Image)
-- Code splitting automático
-- Lazy loading de componentes
-- Compression de assets
-
-### SEO
-- Meta tags dinámicos
-- Open Graph para compartir
-- Sitemap.xml
-- robots.txt
-
-### Accesibilidad
-- ARIA labels
-- Keyboard navigation
-- Color contrast (WCAG AA)
-- Alt text en imágenes
-
----
-
-## 7. FASES DE DESARROLLO
-
-### Fase 1: Setup y Configuración
-- [ ] Instalar dependencias
-- [ ] Configurar Tailwind CSS
-- [ ] Instalar componentes Aceternity
-- [ ] Setup i18n
-- [ ] Variables de entorno
+### Fase 1: Configuración Inicial
+- [ ] Instalar dependencias (framer-motion, react-icons, react-hook-form, zod, @react-email/components)
+- [ ] Agregar componentes Aceternity con ShadCn CLI
+- [ ] Crear contexto i18n (Spanish/English)
+- [ ] Configurar variables de entorno (Sanity, Resend)
+- [ ] Actualizar tailwind.config para tema oscuro
 
 ### Fase 2: Estructura Base
-- [ ] Crear layout principal
-- [ ] FloatingNav
-- [ ] Language Switcher
-- [ ] Rutas con i18n
+- [ ] Crear componente Layout con navegación
+- [ ] Implementar LanguageSwitcher (header + footer)
+- [ ] Crear proveedor de contexto i18n
+- [ ] Configurar esquema de colores oscuros
 
-### Fase 3: Secciones Core
-- [ ] Hero Section
-- [ ] About Section
-- [ ] Technologies Section
-- [ ] Projects Section
+### Fase 3: Desarrollo de Secciones
+- [ ] Sección Hero (hero-highlight)
+- [ ] Sección About (text-generate-effect)
+- [ ] Sección Tecnologías (animated-tooltip)
+- [ ] Sección Proyectos (3d-card + animated-modal)
+- [ ] Sección Contacto (inputs + form)
 
-### Fase 4: Formulario y Contacto
-- [ ] Form Component
-- [ ] Validación Zod
-- [ ] Integración Resend
-- [ ] Manejo de errores
+### Fase 4: Integración Sanity
+- [ ] Crear queries GROQ para proyectos
+- [ ] Crear queries GROQ para tecnologías
+- [ ] Implementar fetch con getStaticProps
+- [ ] Optimizar imágenes con @sanity/image-url
+- [ ] Renderizar portable text
 
-### Fase 5: Integraciones Externas
-- [ ] Sanity setup y queries
-- [ ] Obtener proyectos desde CMS
-- [ ] Deploy y testing
+### Fase 5: Formulario y Email
+- [ ] Crear validación con react-hook-form + zod
+- [ ] Crear template React Email
+- [ ] Implementar API route /api/contact
+- [ ] Configurar Resend
+- [ ] Agregar estados de éxito/error
 
-### Fase 6: Pulido y Deploy
+### Fase 6: Internacionalización
+- [ ] Crear archivos de traducciones (es.json, en.json)
+- [ ] Implementar selector de idioma persistente
+- [ ] Traducir contenido estático
+- [ ] Configurar meta tags por idioma
+
+### Fase 7: Optimización y Testing
+- [ ] Optimizar imágenes
+- [ ] Agregar loading states
 - [ ] Testing responsivo
-- [ ] Optimizaciones
-- [ ] SEO final
-- [ ] Deploy a producción
+- [ ] Testing de formulario
+- [ ] Audit de performance (Lighthouse)
+- [ ] Cross-browser testing
 
 ---
 
-## 8. CONSIDERACIONES ESPECIALES
+## Queries GROQ
 
-### Dark Mode
-- Nativo en Tailwind con `dark:` utilities
-- Toggle en navegación (opcional)
-- Preferencia del sistema
+### Obtener Tecnologías (Ordenadas por categoría)
+```groq
+*[_type == "tecnologia"] | order(categoria asc, nombre asc)
+```
 
-### Rendimiento de Animaciones
-- Usar `will-change` con cuidado
-- Preferir transform y opacity
-- Testing en dispositivos bajos
-
-### Accesibilidad de Animaciones
-- Respetar `prefers-reduced-motion`
-- Fallbacks sin animación
-- Contraste suficiente en todos los estados
-
----
-
-## 9. CHECKLIST FINAL
-
-- [ ] Todas las secciones funcionales
-- [ ] Responsive en móvil, tablet, desktop
-- [ ] Multiidioma funcionando
-- [ ] Formulario validando y enviando emails
-- [ ] Proyectos cargando desde Sanity
-- [ ] Performance Lighthouse > 90
-- [ ] SEO validado
-- [ ] Accesibilidad WCAG AA
-- [ ] Deploy exitoso
-- [ ] Testing en diferentes navegadores
+### Obtener Proyectos Destacados (Ordenados)
+```groq
+*[_type == "proyecto" && destacado == true] | order(orden asc) {
+  _id,
+  titulo,
+  descripcionCorta,
+  descripcionLarga,
+  imagenPrincipal,
+  galeria,
+  tecnologias[]->{_id, nombre, icono, color},
+  linkDemo,
+  linkGitHub,
+  fechaParticipacion,
+  orden
+}
+```
 
 ---
 
-**Última actualización**: 2025-10-20
+## Configuración i18n
+
+**Idioma por defecto**: Español (es_MX)
+
+**Persistencia**: localStorage con key `preferredLanguage`
+
+**Ubicación selector**:
+- Header (navegación principal)
+- Footer
+
+---
+
+## Integraciones Externas
+
+### Sanity
+- Fetch de proyectos y tecnologías
+- Gestión de imágenes con hotspot
+
+### Resend
+- Envío de emails desde formulario de contacto
+- Template con React Email
+
+---
+
+## Consideraciones de Diseño
+
+- **Tema**: Colores oscuros
+- **Responsive**: Mobile first, tablet, desktop
+- **Animaciones**: Smooth y profesionales (Framer Motion)
+- **Accesibilidad**: Textos alt en imágenes, ARIA labels
+- **SEO**: Meta tags dinámicos por idioma
+
+---
+
+## Dependencias Principales
+
+```json
+{
+  "dependencies": {
+    "next": "15.5.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "next-sanity": "^11.5.5",
+    "@sanity/image-url": "^1.2.0",
+    "resend": "^6.2.0",
+    "react-icons": "^4.x",
+    "react-hook-form": "^7.x",
+    "zod": "^3.x",
+    "framer-motion": "^11.x",
+    "@react-email/components": "^0.x",
+    "tailwindcss": "^4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "shadcn": "^3.4.2"
+  }
+}
+```
+
+---
+
+## Notas Importantes
+
+1. **Pages Router**: Se mantiene la estructura existente (no migrar a App Router)
+2. **Colores oscuros**: Implementar tema oscuro en todos los componentes
+3. **Sanity**: Utilizar el cliente existente en `src/lib/sanity.js`
+4. **Portable Text**: Usar componente personalizado para descripciones largas
+5. **SEO**: Generar meta tags dinámicos según idioma seleccionado
+
+---
+
+**Fecha de creación**: 2024-10-21
 **Estado**: En Planificación
+**Versión**: 1.0
