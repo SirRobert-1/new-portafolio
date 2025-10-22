@@ -121,12 +121,12 @@ src/
 - [x] Sección Proyectos (3d-card + animated-modal)
 - [x] Sección Contacto (inputs + form)
 
-### Fase 4: Integración Sanity
-- [ ] Crear queries GROQ para proyectos
-- [ ] Crear queries GROQ para tecnologías
-- [ ] Implementar fetch con getStaticProps
-- [ ] Optimizar imágenes con @sanity/image-url
-- [ ] Renderizar portable text
+### Fase 4: Integración Sanity ✅ COMPLETADA
+- [x] Crear queries GROQ para proyectos
+- [x] Crear queries GROQ para tecnologías
+- [x] Implementar fetch con getStaticProps
+- [x] Optimizar imágenes con @sanity/image-url
+- [x] Renderizar portable text
 
 ### Fase 5: Formulario y Email
 - [ ] Crear validación con react-hook-form + zod
@@ -252,5 +252,5 @@ src/
 
 **Fecha de creación**: 2024-10-21
 **Última actualización**: 2024-10-21
-**Estado**: ✅ Fase 1, 2 y 3 Completadas - Fase 4 Pendiente
-**Versión**: 1.3
+**Estado**: ✅ Fase 1, 2, 3 y 4 Completadas - Fase 5 Pendiente
+**Versión**: 1.4

@@ -10,8 +10,11 @@ import {
 } from "@/components/ui/animated-modal";
 import Image from "next/image";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { getProjectCardImageUrl, getGalleryImageUrl } from "@/lib/imageUrl";
+import PortableText from "@/components/PortableText";
 
 export default function Projects({ projects = [] }) {
+  console.log("Projects component received projects:", projects);
   const { t } = useLanguage();
 
   // Mock data - En la Fase 4 esto vendrá de Sanity
@@ -19,12 +22,19 @@ export default function Projects({ projects = [] }) {
     {
       _id: "1",
       titulo: "E-commerce Platform",
-      descripcionCorta: "Full-stack e-commerce solution with Next.js and Stripe",
+      descripcionCorta:
+        "Full-stack e-commerce solution with Next.js and Stripe",
       descripcionLarga:
         "A complete e-commerce platform built with Next.js, featuring product management, shopping cart, secure checkout with Stripe, and admin dashboard. Includes inventory management, order tracking, and customer analytics.",
       imagenPrincipal: "/placeholder-project.jpg",
       galeria: ["/placeholder-1.jpg", "/placeholder-2.jpg"],
-      tecnologias: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "Supabase"],
+      tecnologias: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Stripe",
+        "Supabase",
+      ],
       linkDemo: "https://example.com",
       linkGitHub: "https://github.com/example",
     },
@@ -104,7 +114,13 @@ export default function Projects({ projects = [] }) {
                     {project.imagenPrincipal && (
                       <div className="relative w-full h-64 rounded-xl overflow-hidden mb-6 bg-neutral-200 dark:bg-neutral-800">
                         <Image
-                          src={project.imagenPrincipal}
+                          src={
+                            getProjectCardImageUrl(
+                              project.imagenPrincipal,
+                              800,
+                              400
+                            ) || project.imagenPrincipal
+                          }
                           alt={project.titulo}
                           fill
                           className="object-cover"
@@ -118,7 +134,15 @@ export default function Projects({ projects = [] }) {
                         Description
                       </h3>
                       <div className="text-neutral-700 dark:text-neutral-300 space-y-2">
-                        {project.descripcionLarga || project.descripcionCorta}
+                        {/* Si descripcionLarga es portable text, usar el componente */}
+                        {Array.isArray(project.descripcionLarga) ? (
+                          <PortableText content={project.descripcionLarga} />
+                        ) : (
+                          <p>
+                            {project.descripcionLarga ||
+                              project.descripcionCorta}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -129,14 +153,26 @@ export default function Projects({ projects = [] }) {
                           {t("projects.technologies")}
                         </h3>
                         <div className="flex flex-wrap gap-2">
-                          {project.tecnologias.map((tech, index) => (
-                            <span
-                              key={index}
-                              className="px-3 py-1 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-sm text-neutral-900 dark:text-white border border-indigo-500/30"
-                            >
-                              {tech}
-                            </span>
-                          ))}
+                          {project.tecnologias.map((tech, index) => {
+                            // Manejar si tech es un objeto (con referencia expandida), string, o null
+                            if (!tech) return null;
+
+                            const techName =
+                              typeof tech === "string" ? tech : tech.nombre;
+                            const techColor =
+                              typeof tech === "object" && tech.color
+                                ? tech.color
+                                : "from-indigo-500/20 to-purple-500/20";
+
+                            return (
+                              <span
+                                key={tech._id || index}
+                                className={`px-3 py-1 rounded-full bg-gradient-to-r ${techColor} text-sm text-neutral-900 dark:text-white border border-indigo-500/30`}
+                              >
+                                {techName}
+                              </span>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -154,7 +190,7 @@ export default function Projects({ projects = [] }) {
                               className="relative w-full h-48 rounded-lg overflow-hidden bg-neutral-200 dark:bg-neutral-800"
                             >
                               <Image
-                                src={imagen}
+                                src={getGalleryImageUrl(imagen) || imagen}
                                 alt={`${project.titulo} - ${index + 1}`}
                                 fill
                                 className="object-cover"

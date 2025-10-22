@@ -1,7 +1,14 @@
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Image from "next/image";
+import { getProjectCardImageUrl } from "@/lib/imageUrl";
 
 export default function ProjectCard({ project }) {
+  // Obtener el nombre de la tecnología (puede ser string, objeto, o null)
+  const getTechName = (tech) => {
+    if (!tech) return '';
+    return typeof tech === 'string' ? tech : tech.nombre || '';
+  };
+
   return (
     <CardContainer className="inter-var" containerClassName="py-10">
       <CardBody className="bg-neutral-100 dark:bg-neutral-900 relative group/card border-2 border-neutral-200 dark:border-neutral-800 w-auto sm:w-[30rem] h-auto rounded-xl p-6">
@@ -24,7 +31,7 @@ export default function ProjectCard({ project }) {
           <div className="relative w-full h-60 rounded-xl overflow-hidden bg-neutral-200 dark:bg-neutral-800">
             {project.imagenPrincipal ? (
               <Image
-                src={project.imagenPrincipal}
+                src={getProjectCardImageUrl(project.imagenPrincipal, 600, 400) || project.imagenPrincipal}
                 alt={project.titulo}
                 fill
                 className="object-cover"
@@ -38,16 +45,25 @@ export default function ProjectCard({ project }) {
         </CardItem>
 
         <div className="flex flex-wrap gap-2 mt-4">
-          {project.tecnologias?.map((tech, index) => (
+          {project.tecnologias?.filter(tech => tech).slice(0, 5).map((tech, index) => (
             <CardItem
-              key={index}
+              key={tech._id || index}
               translateZ="50"
               as="span"
               className="px-3 py-1 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-xs text-neutral-900 dark:text-white border border-indigo-500/30"
             >
-              {tech}
+              {getTechName(tech)}
             </CardItem>
           ))}
+          {project.tecnologias?.filter(tech => tech).length > 5 && (
+            <CardItem
+              translateZ="50"
+              as="span"
+              className="px-3 py-1 rounded-full bg-neutral-300 dark:bg-neutral-700 text-xs text-neutral-900 dark:text-white"
+            >
+              +{project.tecnologias.filter(tech => tech).length - 5}
+            </CardItem>
+          )}
         </div>
 
         <div className="flex justify-between items-center mt-8">

@@ -1,34 +1,37 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "motion/react";
 
-export default function Technologies() {
+export default function Technologies({ technologies = [] }) {
   const { t } = useLanguage();
 
-  // Mock data - En la Fase 4 esto vendrá de Sanity
-  const technologies = {
-    frontend: [
-      { id: 1, name: "Next.js", designation: "React Framework", color: "from-blue-500 to-cyan-500" },
-      { id: 2, name: "React", designation: "UI Library", color: "from-cyan-500 to-blue-400" },
-      { id: 3, name: "Tailwind CSS", designation: "CSS Framework", color: "from-sky-500 to-indigo-500" },
-      { id: 4, name: "TypeScript", designation: "Programming Language", color: "from-blue-600 to-blue-400" },
-      { id: 5, name: "JavaScript", designation: "Programming Language", color: "from-yellow-500 to-yellow-600" },
-    ],
-    backend: [
-      { id: 6, name: "Node.js", designation: "Runtime Environment", color: "from-green-600 to-green-400" },
-      { id: 7, name: "Express", designation: "Web Framework", color: "from-gray-600 to-gray-400" },
-    ],
-    database: [
-      { id: 8, name: "Supabase", designation: "Backend Platform", color: "from-emerald-500 to-green-500" },
-      { id: 9, name: "MongoDB", designation: "NoSQL Database", color: "from-green-600 to-lime-500" },
-      { id: 10, name: "PostgreSQL", designation: "SQL Database", color: "from-blue-700 to-blue-500" },
-    ],
-    tools: [
-      { id: 11, name: "Git", designation: "Version Control", color: "from-orange-600 to-red-500" },
-      { id: 12, name: "Docker", designation: "Containerization", color: "from-blue-600 to-cyan-600" },
-      { id: 13, name: "Figma", designation: "Design Tool", color: "from-purple-500 to-pink-500" },
-      { id: 14, name: "VS Code", designation: "Code Editor", color: "from-blue-600 to-sky-500" },
-    ],
-  };
+  // Agrupar tecnologías por categoría
+  const groupedTechnologies = technologies.reduce((acc, tech) => {
+    const category = tech.categoria || 'other';
+    if (!acc[category]) {
+      acc[category] = [];
+    }
+    acc[category].push({
+      id: tech._id,
+      name: tech.nombre,
+      designation: tech.descripcion || '',
+      color: tech.color || 'from-gray-500 to-gray-600',
+    });
+    return acc;
+  }, {});
+
+  // Si no hay datos de Sanity, usar datos mock como fallback
+  const techData = Object.keys(groupedTechnologies).length > 0
+    ? groupedTechnologies
+    : {
+        frontend: [
+          { id: 1, name: "Next.js", designation: "React Framework", color: "from-blue-500 to-cyan-500" },
+          { id: 2, name: "React", designation: "UI Library", color: "from-cyan-500 to-blue-400" },
+          { id: 3, name: "Tailwind CSS", designation: "CSS Framework", color: "from-sky-500 to-indigo-500" },
+        ],
+        backend: [
+          { id: 6, name: "Node.js", designation: "Runtime Environment", color: "from-green-600 to-green-400" },
+        ],
+      };
 
   // Función para obtener las iniciales de una tecnología
   const getInitials = (name) => {
@@ -87,125 +90,37 @@ export default function Technologies() {
           {t("technologies.title")}
         </motion.h2>
 
-        {/* Frontend */}
-        <div className="mb-16">
-          <motion.h3
-            className="text-2xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            {t("technologies.categories.frontend")}
-          </motion.h3>
-          <div className="flex flex-wrap justify-center gap-8">
-            {technologies.frontend.map((tech, index) => (
-              <motion.div
-                key={tech.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <TechnologyIcon
-                  name={tech.name}
-                  designation={tech.designation}
-                  color={tech.color}
-                />
-              </motion.div>
-            ))}
+        {/* Renderizar categorías dinámicamente */}
+        {Object.entries(techData).map(([category, techs], categoryIndex) => (
+          <div key={category} className={categoryIndex < Object.keys(techData).length - 1 ? "mb-16" : ""}>
+            <motion.h3
+              className="text-2xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              {t(`technologies.categories.${category}`)}
+            </motion.h3>
+            <div className="flex flex-wrap justify-center gap-8">
+              {techs.map((tech, index) => (
+                <motion.div
+                  key={tech.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                >
+                  <TechnologyIcon
+                    name={tech.name}
+                    designation={tech.designation}
+                    color={tech.color}
+                  />
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Backend */}
-        <div className="mb-16">
-          <motion.h3
-            className="text-2xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            {t("technologies.categories.backend")}
-          </motion.h3>
-          <div className="flex flex-wrap justify-center gap-8">
-            {technologies.backend.map((tech, index) => (
-              <motion.div
-                key={tech.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <TechnologyIcon
-                  name={tech.name}
-                  designation={tech.designation}
-                  color={tech.color}
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Database */}
-        <div className="mb-16">
-          <motion.h3
-            className="text-2xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            {t("technologies.categories.database")}
-          </motion.h3>
-          <div className="flex flex-wrap justify-center gap-8">
-            {technologies.database.map((tech, index) => (
-              <motion.div
-                key={tech.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <TechnologyIcon
-                  name={tech.name}
-                  designation={tech.designation}
-                  color={tech.color}
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Tools */}
-        <div>
-          <motion.h3
-            className="text-2xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            {t("technologies.categories.tools")}
-          </motion.h3>
-          <div className="flex flex-wrap justify-center gap-8">
-            {technologies.tools.map((tech, index) => (
-              <motion.div
-                key={tech.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
-                <TechnologyIcon
-                  name={tech.name}
-                  designation={tech.designation}
-                  color={tech.color}
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
