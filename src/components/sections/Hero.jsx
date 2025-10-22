@@ -1,5 +1,5 @@
 import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
@@ -13,7 +13,10 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center"
+    >
       <HeroHighlight containerClassName="min-h-screen">
         <motion.div
           initial={{

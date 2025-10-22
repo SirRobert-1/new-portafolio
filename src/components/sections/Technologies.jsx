@@ -6,47 +6,56 @@ export default function Technologies({ technologies = [] }) {
 
   // Agrupar tecnologías por categoría
   const groupedTechnologies = technologies.reduce((acc, tech) => {
-    const category = tech.categoria || 'other';
+    const category = tech.categoria || "other";
     if (!acc[category]) {
       acc[category] = [];
     }
     acc[category].push({
       id: tech._id,
       name: tech.nombre,
-      designation: tech.descripcion || '',
-      color: tech.color || 'from-gray-500 to-gray-600',
+      designation: tech.descripcion || "",
+      color: tech.color || "from-gray-500 to-gray-600",
+      icon: tech.icono,
     });
     return acc;
   }, {});
 
   // Si no hay datos de Sanity, usar datos mock como fallback
-  const techData = Object.keys(groupedTechnologies).length > 0
-    ? groupedTechnologies
-    : {
-        frontend: [
-          { id: 1, name: "Next.js", designation: "React Framework", color: "from-blue-500 to-cyan-500" },
-          { id: 2, name: "React", designation: "UI Library", color: "from-cyan-500 to-blue-400" },
-          { id: 3, name: "Tailwind CSS", designation: "CSS Framework", color: "from-sky-500 to-indigo-500" },
-        ],
-        backend: [
-          { id: 6, name: "Node.js", designation: "Runtime Environment", color: "from-green-600 to-green-400" },
-        ],
-      };
+  const techData =
+    Object.keys(groupedTechnologies).length > 0
+      ? groupedTechnologies
+      : {
+          frontend: [
+            {
+              id: 1,
+              name: "Next.js",
+              designation: "React Framework",
+              color: "from-blue-500 to-cyan-500",
+            },
+            {
+              id: 2,
+              name: "React",
+              designation: "UI Library",
+              color: "from-cyan-500 to-blue-400",
+            },
+            {
+              id: 3,
+              name: "Tailwind CSS",
+              designation: "CSS Framework",
+              color: "from-sky-500 to-indigo-500",
+            },
+          ],
+          backend: [
+            {
+              id: 6,
+              name: "Node.js",
+              designation: "Runtime Environment",
+              color: "from-green-600 to-green-400",
+            },
+          ],
+        };
 
-  // Función para obtener las iniciales de una tecnología
-  const getInitials = (name) => {
-    const words = name.split(/[\s.]/);
-    if (words.length === 1) {
-      return words[0].substring(0, 2).toUpperCase();
-    }
-    return words
-      .slice(0, 2)
-      .map((word) => word[0])
-      .join("")
-      .toUpperCase();
-  };
-
-  const TechnologyIcon = ({ name, designation, color }) => (
+  const TechnologyIcon = ({ name, designation, color, icon }) => (
     <motion.div
       className="group relative flex flex-col items-center"
       initial={{ opacity: 0, scale: 0.8 }}
@@ -57,8 +66,20 @@ export default function Technologies({ technologies = [] }) {
     >
       <div className="relative">
         <div className="p-4 rounded-full bg-gradient-to-br from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/20 dark:to-purple-500/20 border border-indigo-500/20 dark:border-indigo-500/30 group-hover:border-indigo-500/50 transition-all duration-300">
-          <div className={`w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${color} flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-lg`}>
-            {getInitials(name)}
+          <div
+            className={`w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br ${color} flex items-center justify-center shadow-lg overflow-hidden p-2`}
+          >
+            {icon ? (
+              <img
+                src={icon}
+                alt={name}
+                className="w-full h-full object-contain"
+              />
+            ) : (
+              <span className="text-white font-bold text-lg md:text-xl">
+                {name.substring(0, 2).toUpperCase()}
+              </span>
+            )}
           </div>
         </div>
 
@@ -92,16 +113,12 @@ export default function Technologies({ technologies = [] }) {
 
         {/* Renderizar categorías dinámicamente */}
         {Object.entries(techData).map(([category, techs], categoryIndex) => (
-          <div key={category} className={categoryIndex < Object.keys(techData).length - 1 ? "mb-16" : ""}>
-            <motion.h3
-              className="text-2xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-200"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              {t(`technologies.categories.${category}`)}
-            </motion.h3>
+          <div
+            key={category}
+            className={
+              categoryIndex < Object.keys(techData).length - 1 ? "mb-16" : ""
+            }
+          >
             <div className="flex flex-wrap justify-center gap-8">
               {techs.map((tech, index) => (
                 <motion.div
@@ -115,6 +132,7 @@ export default function Technologies({ technologies = [] }) {
                     name={tech.name}
                     designation={tech.designation}
                     color={tech.color}
+                    icon={tech.icon}
                   />
                 </motion.div>
               ))}

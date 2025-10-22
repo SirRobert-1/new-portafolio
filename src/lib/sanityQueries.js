@@ -11,7 +11,7 @@ export const getTechnologiesQuery = `
   *[_type == "tecnologia"] | order(categoria asc, nombre asc) {
     _id,
     nombre,
-    icono,
+    "icono": icono.asset->url,
     categoria,
     color,
     descripcion
@@ -34,7 +34,7 @@ export const getFeaturedProjectsQuery = `
     tecnologias[]->{
       _id,
       nombre,
-      icono,
+      "icono": icono.asset->url,
       color,
       categoria
     },
@@ -62,7 +62,7 @@ export const getProjectByIdQuery = (id) => `
     tecnologias[]->{
       _id,
       nombre,
-      icono,
+      "icono": icono.asset->url,
       color,
       categoria
     },
@@ -83,7 +83,7 @@ export const getTechnologiesByCategoryQuery = `
   *[_type == "tecnologia"] | order(categoria asc, nombre asc) {
     _id,
     nombre,
-    icono,
+    "icono": icono.asset->url,
     categoria,
     color,
     descripcion
@@ -106,7 +106,7 @@ export const getAllProjectsQuery = `
     tecnologias[]->{
       _id,
       nombre,
-      icono,
+      "icono": icono.asset->url,
       color,
       categoria
     },

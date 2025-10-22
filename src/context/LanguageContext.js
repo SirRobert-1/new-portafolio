@@ -1,4 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import esTranslations from '@/locales/es.json';
+import enTranslations from '@/locales/en.json';
 
 const LanguageContext = createContext();
 
@@ -31,14 +33,19 @@ export const LanguageProvider = ({ children }) => {
     }
   };
 
+  // Get nested value from object using dot notation (e.g., "hero.greeting")
+  const getNestedValue = (obj, path) => {
+    return path.split('.').reduce((acc, part) => acc?.[part], obj);
+  };
+
   const value = {
     language,
     changeLanguage,
     isLoaded,
-    t: (key, translations) => {
-      // Simple translation function
-      // translations should be an object with 'es' and 'en' keys
-      return translations?.[language] || key;
+    t: (key) => {
+      const translations = language === 'es' ? esTranslations : enTranslations;
+      const translation = getNestedValue(translations, key);
+      return translation || key;
     }
   };
 
