@@ -8,19 +8,19 @@
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "title": "Full Stack Developer",
+    "title": "Front End Web Developer Jr. ",
     "description": "Building modern and innovative web experiences",
     "cta": "Contact Me"
   },
   "about": {
     "title": "About Me",
-    "content": "Passionate developer creating modern and scalable web solutions with cutting-edge technologies. Specialized in full-stack development with a focus on user experience and performance.",
+    "content": "Front End Web Developer Jr focusing on visual design and user experience. ",
     "experience": {
-      "years": "3+ Years",
+      "years": "2+ Years",
       "label": "of Experience"
     },
     "projects": {
-      "count": "20+",
+      "count": "5+",
       "label": "Completed Projects"
     },
     "technologies": {
@@ -29,7 +29,7 @@
     },
     "specialties": {
       "title": "Specialties",
-      "list": "Web Development, Mobile Apps, RESTful APIs, Databases, UI/UX Design"
+      "list": "Web Development, UI/UX Design"
     }
   },
   "technologies": {
