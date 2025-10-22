@@ -128,12 +128,12 @@ src/
 - [x] Optimizar imágenes con @sanity/image-url
 - [x] Renderizar portable text
 
-### Fase 5: Formulario y Email
-- [ ] Crear validación con react-hook-form + zod
-- [ ] Crear template React Email
-- [ ] Implementar API route /api/contact
-- [ ] Configurar Resend
-- [ ] Agregar estados de éxito/error
+### Fase 5: Formulario y Email ✅ COMPLETADA
+- [x] Crear validación con react-hook-form + zod
+- [x] Crear template React Email
+- [x] Implementar API route /api/contact
+- [x] Configurar Resend
+- [x] Agregar estados de éxito/error
 
 ### Fase 6: Internacionalización
 - [ ] Crear archivos de traducciones (es.json, en.json)
@@ -252,5 +252,5 @@ src/
 
 **Fecha de creación**: 2024-10-21
 **Última actualización**: 2024-10-21
-**Estado**: ✅ Fase 1, 2, 3 y 4 Completadas - Fase 5 Pendiente
-**Versión**: 1.4
+**Estado**: ✅ Fases 1, 2, 3, 4 y 5 Completadas - Fase 6 Pendiente
+**Versión**: 1.5

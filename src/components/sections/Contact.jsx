@@ -40,16 +40,36 @@ export default function Contact() {
     setSubmitStatus(null);
 
     try {
-      // En la Fase 5 esto se conectará a la API de Resend
-      // Por ahora simulamos el envío
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Enviar datos a la API route
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-      console.log("Form data:", data);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message");
+      }
+
       setSubmitStatus("success");
       reset();
+
+      // Ocultar mensaje de éxito después de 5 segundos
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
     } catch (error) {
       console.error("Error sending message:", error);
       setSubmitStatus("error");
+
+      // Ocultar mensaje de error después de 5 segundos
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
