@@ -15,7 +15,6 @@ import PortableText from "@/components/PortableText";
 import { Badge } from "@/components/ui/badge";
 
 export default function Projects({ projects = [] }) {
-  console.log("Projects component received projects:", projects);
   const { t } = useLanguage();
   const [selectedProject, setSelectedProject] = useState(null);
 

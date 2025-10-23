@@ -63,7 +63,6 @@ export default function Contact() {
         setSubmitStatus(null);
       }, 5000);
     } catch (error) {
-      console.error("Error sending message:", error);
       setSubmitStatus("error");
 
       // Ocultar mensaje de error después de 5 segundos

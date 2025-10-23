@@ -81,8 +81,6 @@ export async function getStaticProps() {
       revalidate: 60,
     };
   } catch (error) {
-    console.error('Error fetching data from Sanity:', error);
-
     // Return empty arrays as fallback
     return {
       props: {
