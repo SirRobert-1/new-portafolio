@@ -20,41 +20,6 @@ export default function Technologies({ technologies = [] }) {
     return acc;
   }, {});
 
-  // Si no hay datos de Sanity, usar datos mock como fallback
-  const techData =
-    Object.keys(groupedTechnologies).length > 0
-      ? groupedTechnologies
-      : {
-          frontend: [
-            {
-              id: 1,
-              name: "Next.js",
-              designation: "React Framework",
-              color: "from-blue-500 to-cyan-500",
-            },
-            {
-              id: 2,
-              name: "React",
-              designation: "UI Library",
-              color: "from-cyan-500 to-blue-400",
-            },
-            {
-              id: 3,
-              name: "Tailwind CSS",
-              designation: "CSS Framework",
-              color: "from-sky-500 to-indigo-500",
-            },
-          ],
-          backend: [
-            {
-              id: 6,
-              name: "Node.js",
-              designation: "Runtime Environment",
-              color: "from-green-600 to-green-400",
-            },
-          ],
-        };
-
   const TechnologyIcon = ({ name, designation, color, icon }) => (
     <motion.div
       className="group relative flex flex-col items-center"
@@ -112,11 +77,11 @@ export default function Technologies({ technologies = [] }) {
         </motion.h2>
 
         {/* Renderizar categorías dinámicamente */}
-        {Object.entries(techData).map(([category, techs], categoryIndex) => (
+        {Object.entries(groupedTechnologies).map(([category, techs], categoryIndex) => (
           <div
             key={category}
             className={
-              categoryIndex < Object.keys(techData).length - 1 ? "mb-16" : ""
+              categoryIndex < Object.keys(groupedTechnologies).length - 1 ? "mb-16" : ""
             }
           >
             <div className="flex flex-wrap justify-center gap-8">

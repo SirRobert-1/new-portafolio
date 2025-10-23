@@ -61,7 +61,7 @@ export default function ProjectModal({ project, trigger }) {
                     key={index}
                     className="px-3 py-1 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-sm text-neutral-900 dark:text-white border border-indigo-500/30"
                   >
-                    {tech}
+                    {tech.nombre}
                   </span>
                 ))}
               </div>

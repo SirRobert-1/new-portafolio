@@ -31,12 +31,13 @@ export const getFeaturedProjectsQuery = `
     descripcionLarga,
     imagenPrincipal,
     galeria,
-    tecnologias[]->{
-      _id,
-      nombre,
-      "icono": icono.asset->url,
+    "tecnologias": tecnologias[]{
+      _key,
       color,
-      categoria
+      "nombre": tecnologia->nombre,
+      "_id": tecnologia->_id,
+      "icono": tecnologia->icono.asset->url,
+      "categoria": tecnologia->categoria
     },
     linkDemo,
     linkGitHub,
@@ -59,12 +60,13 @@ export const getProjectByIdQuery = (id) => `
     descripcionLarga,
     imagenPrincipal,
     galeria,
-    tecnologias[]->{
-      _id,
-      nombre,
-      "icono": icono.asset->url,
+    "tecnologias": tecnologias[]{
+      _key,
       color,
-      categoria
+      "nombre": tecnologia->nombre,
+      "_id": tecnologia->_id,
+      "icono": tecnologia->icono.asset->url,
+      "categoria": tecnologia->categoria
     },
     linkDemo,
     linkGitHub,
@@ -103,12 +105,13 @@ export const getAllProjectsQuery = `
     descripcionLarga,
     imagenPrincipal,
     galeria,
-    tecnologias[]->{
-      _id,
-      nombre,
-      "icono": icono.asset->url,
+    "tecnologias": tecnologias[]{
+      _key,
       color,
-      categoria
+      "nombre": tecnologia->nombre,
+      "_id": tecnologia->_id,
+      "icono": tecnologia->icono.asset->url,
+      "categoria": tecnologia->categoria
     },
     linkDemo,
     linkGitHub,

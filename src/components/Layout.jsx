@@ -1,40 +1,40 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useLanguage } from '@/context/LanguageContext';
-import LanguageSwitcher from './LanguageSwitcher';
-import esTranslations from '@/locales/es.json';
-import enTranslations from '@/locales/en.json';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
+import esTranslations from "@/locales/es.json";
+import enTranslations from "@/locales/en.json";
 
 export default function Layout({ children }) {
   const { language } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const translations = language === 'es' ? esTranslations : enTranslations;
+  const translations = language === "es" ? esTranslations : enTranslations;
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsMobileMenuOpen(false);
     }
   };
 
   const navItems = [
-    { key: 'home', id: 'hero' },
-    { key: 'about', id: 'about' },
-    { key: 'technologies', id: 'technologies' },
-    { key: 'projects', id: 'projects' },
-    { key: 'contact', id: 'contact' }
+    { key: "home", id: "hero" },
+    { key: "about", id: "about" },
+    { key: "technologies", id: "technologies" },
+    { key: "projects", id: "projects" },
+    { key: "contact", id: "contact" },
   ];
 
   return (
@@ -43,8 +43,8 @@ export default function Layout({ children }) {
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-neutral-950/80 backdrop-blur-lg border-b border-neutral-800'
-            : 'bg-transparent'
+            ? "bg-neutral-950/80 backdrop-blur-lg border-b border-neutral-800"
+            : "bg-transparent"
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -112,7 +112,7 @@ export default function Layout({ children }) {
               <motion.div
                 className="md:hidden mt-4 pb-4"
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
+                animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.2 }}
               >
@@ -144,14 +144,15 @@ export default function Layout({ children }) {
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-sm text-neutral-400">
-              © {new Date().getFullYear()} Portfolio. {translations.footer.rights}.
+              © {new Date().getFullYear()} Portfolio.{" "}
+              {translations.footer.rights}.
             </div>
 
             <div className="flex items-center space-x-6">
               {/* Social Links - Placeholder */}
               <div className="flex items-center space-x-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/SirRobert-1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-neutral-400 hover:text-white transition-colors duration-200"

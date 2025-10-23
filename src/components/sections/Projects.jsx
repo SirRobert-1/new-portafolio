@@ -12,59 +12,11 @@ import Image from "next/image";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 import { getProjectCardImageUrl, getGalleryImageUrl } from "@/lib/imageUrl";
 import PortableText from "@/components/PortableText";
+import { Badge } from "@/components/ui/badge";
 
 export default function Projects({ projects = [] }) {
   console.log("Projects component received projects:", projects);
   const { t } = useLanguage();
-
-  // Mock data - En la Fase 4 esto vendrá de Sanity
-  const mockProjects = [
-    {
-      _id: "1",
-      titulo: "E-commerce Platform",
-      descripcionCorta:
-        "Full-stack e-commerce solution with Next.js and Stripe",
-      descripcionLarga:
-        "A complete e-commerce platform built with Next.js, featuring product management, shopping cart, secure checkout with Stripe, and admin dashboard. Includes inventory management, order tracking, and customer analytics.",
-      imagenPrincipal: "/placeholder-project.jpg",
-      galeria: ["/placeholder-1.jpg", "/placeholder-2.jpg"],
-      tecnologias: [
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-        "Stripe",
-        "Supabase",
-      ],
-      linkDemo: "https://example.com",
-      linkGitHub: "https://github.com/example",
-    },
-    {
-      _id: "2",
-      titulo: "Task Management App",
-      descripcionCorta: "Collaborative task manager with real-time updates",
-      descripcionLarga:
-        "A modern task management application with real-time collaboration features. Users can create projects, assign tasks, set deadlines, and track progress. Built with Next.js and Supabase for real-time subscriptions.",
-      imagenPrincipal: "/placeholder-project.jpg",
-      galeria: ["/placeholder-3.jpg"],
-      tecnologias: ["Next.js", "React", "Supabase", "Tailwind CSS"],
-      linkDemo: "https://example.com",
-      linkGitHub: "https://github.com/example",
-    },
-    {
-      _id: "3",
-      titulo: "Portfolio CMS",
-      descripcionCorta: "Content management system for portfolios",
-      descripcionLarga:
-        "A headless CMS built with Sanity and Next.js for managing portfolio content. Features include drag-and-drop page builder, media management, and multi-language support.",
-      imagenPrincipal: "/placeholder-project.jpg",
-      galeria: [],
-      tecnologias: ["Next.js", "Sanity", "React", "Tailwind CSS"],
-      linkDemo: "https://example.com",
-      linkGitHub: "https://github.com/example",
-    },
-  ];
-
-  const displayProjects = projects.length > 0 ? projects : mockProjects;
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
@@ -84,7 +36,7 @@ export default function Projects({ projects = [] }) {
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project._id}
               initial={{ opacity: 0, y: 20 }}
@@ -159,18 +111,15 @@ export default function Projects({ projects = [] }) {
 
                             const techName =
                               typeof tech === "string" ? tech : tech.nombre;
-                            const techColor =
-                              typeof tech === "object" && tech.color
-                                ? tech.color
-                                : "from-indigo-500/20 to-purple-500/20";
 
                             return (
-                              <span
+                              <Badge
                                 key={tech._id || index}
-                                className={`px-3 py-1 rounded-full bg-gradient-to-r ${techColor} text-sm text-neutral-900 dark:text-white border border-indigo-500/30`}
+                                variant="secondary"
+                                className="text-sm"
                               >
                                 {techName}
-                              </span>
+                              </Badge>
                             );
                           })}
                         </div>
