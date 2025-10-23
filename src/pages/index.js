@@ -1,12 +1,26 @@
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { useLanguage } from '@/context/LanguageContext';
 import Hero from '@/components/sections/Hero';
-import About from '@/components/sections/About';
-import Technologies from '@/components/sections/Technologies';
-import Projects from '@/components/sections/Projects';
-import Contact from '@/components/sections/Contact';
 import sanityClient from '@/lib/sanity';
 import { getTechnologiesQuery, getFeaturedProjectsQuery } from '@/lib/sanityQueries';
+
+// Lazy load non-critical sections for better performance
+const About = dynamic(() => import('@/components/sections/About'), {
+  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-neutral-500">Loading...</div></div>,
+});
+
+const Technologies = dynamic(() => import('@/components/sections/Technologies'), {
+  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-neutral-500">Loading...</div></div>,
+});
+
+const Projects = dynamic(() => import('@/components/sections/Projects'), {
+  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-neutral-500">Loading...</div></div>,
+});
+
+const Contact = dynamic(() => import('@/components/sections/Contact'), {
+  loading: () => <div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-neutral-500">Loading...</div></div>,
+});
 
 export default function Home({ technologies, projects }) {
   const { t } = useLanguage();

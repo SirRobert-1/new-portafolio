@@ -35,6 +35,9 @@ export default function ProjectCard({ project }) {
                 alt={project.titulo}
                 fill
                 className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30rem"
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-neutral-500">

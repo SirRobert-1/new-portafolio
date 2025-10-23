@@ -35,6 +35,9 @@ export default function ProjectModal({ project, trigger }) {
                 alt={project.titulo}
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 80vw"
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
               />
             </div>
           )}
@@ -85,6 +88,9 @@ export default function ProjectModal({ project, trigger }) {
                       alt={`${project.titulo} - ${index + 1}`}
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                      placeholder="blur"
+                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
                     />
                   </div>
                 ))}
