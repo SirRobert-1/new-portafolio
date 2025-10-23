@@ -67,7 +67,7 @@ export default function Technologies({ technologies = [] }) {
     >
       <div className="max-w-6xl mx-auto w-full">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-16 text-neutral-900 dark:text-white"
+          className="text-4xl md:text-5xl font-bold text-center mb-4 text-neutral-900 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -75,6 +75,16 @@ export default function Technologies({ technologies = [] }) {
         >
           {t("technologies.title")}
         </motion.h2>
+
+        <motion.p
+          className="text-center text-lg text-neutral-600 dark:text-neutral-400 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          {t("technologies.subtitle")}
+        </motion.p>
 
         {/* Renderizar categorías dinámicamente */}
         {Object.entries(groupedTechnologies).map(([category, techs], categoryIndex) => (

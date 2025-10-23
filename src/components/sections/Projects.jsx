@@ -26,7 +26,7 @@ export default function Projects({ projects = [] }) {
     >
       <div className="max-w-7xl mx-auto w-full">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-16 text-neutral-900 dark:text-white"
+          className="text-4xl md:text-5xl font-bold text-center mb-4 text-neutral-900 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -34,6 +34,16 @@ export default function Projects({ projects = [] }) {
         >
           {t("projects.title")}
         </motion.h2>
+
+        <motion.p
+          className="text-center text-lg text-neutral-600 dark:text-neutral-400 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          {t("projects.subtitle")}
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (

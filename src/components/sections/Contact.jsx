@@ -101,12 +101,12 @@ export default function Contact() {
                 htmlFor="name"
                 className="block text-sm font-medium text-neutral-900 dark:text-white mb-2"
               >
-                {t("contact.name")}
+                {t("contact.form.name.label")}
               </label>
               <Input
                 id="name"
                 type="text"
-                placeholder={t("contact.name")}
+                placeholder={t("contact.form.name.placeholder")}
                 {...register("name")}
                 className={errors.name ? "border-red-500" : ""}
               />
@@ -121,12 +121,12 @@ export default function Contact() {
                 htmlFor="email"
                 className="block text-sm font-medium text-neutral-900 dark:text-white mb-2"
               >
-                {t("contact.email")}
+                {t("contact.form.email.label")}
               </label>
               <Input
                 id="email"
                 type="email"
-                placeholder={t("contact.email")}
+                placeholder={t("contact.form.email.placeholder")}
                 {...register("email")}
                 className={errors.email ? "border-red-500" : ""}
               />
@@ -141,7 +141,7 @@ export default function Contact() {
                 htmlFor="message"
                 className="block text-sm font-medium text-neutral-900 dark:text-white mb-2"
               >
-                {t("contact.message")}
+                {t("contact.form.message.label")}
               </label>
               <motion.div
                 className="group/input rounded-lg p-[2px] transition duration-300 bg-gradient-to-r from-transparent via-transparent to-transparent hover:from-indigo-500/20 hover:via-purple-500/20 hover:to-indigo-500/20"
@@ -149,7 +149,7 @@ export default function Contact() {
                 <textarea
                   id="message"
                   rows="6"
-                  placeholder={t("contact.message")}
+                  placeholder={t("contact.form.message.placeholder")}
                   {...register("message")}
                   className={`shadow-input dark:placeholder-text-neutral-600 flex w-full rounded-md border-none bg-gray-50 px-3 py-2 text-sm text-black transition duration-400 group-hover/input:shadow-none placeholder:text-neutral-400 focus-visible:ring-[2px] focus-visible:ring-neutral-400 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-800 dark:text-white dark:shadow-[0px_0px_1px_1px_#404040] dark:focus-visible:ring-neutral-600 resize-none ${
                     errors.message ? "border-red-500" : ""
@@ -173,7 +173,7 @@ export default function Contact() {
               whileHover={!isSubmitting ? { scale: 1.02 } : {}}
               whileTap={!isSubmitting ? { scale: 0.98 } : {}}
             >
-              {isSubmitting ? t("contact.sending") : t("contact.send")}
+              {isSubmitting ? t("contact.form.sending") : t("contact.form.submit")}
             </motion.button>
 
             {/* Status Messages */}
