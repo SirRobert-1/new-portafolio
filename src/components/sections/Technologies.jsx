@@ -87,33 +87,37 @@ export default function Technologies({ technologies = [] }) {
         </motion.p>
 
         {/* Renderizar categorías dinámicamente */}
-        {Object.entries(groupedTechnologies).map(([category, techs], categoryIndex) => (
-          <div
-            key={category}
-            className={
-              categoryIndex < Object.keys(groupedTechnologies).length - 1 ? "mb-16" : ""
-            }
-          >
-            <div className="flex flex-wrap justify-center gap-8">
-              {techs.map((tech, index) => (
-                <motion.div
-                  key={tech.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                >
-                  <TechnologyIcon
-                    name={tech.name}
-                    designation={tech.designation}
-                    color={tech.color}
-                    icon={tech.icon}
-                  />
-                </motion.div>
-              ))}
+        {Object.entries(groupedTechnologies).map(
+          ([category, techs], categoryIndex) => (
+            <div
+              key={category}
+              className={
+                categoryIndex < Object.keys(groupedTechnologies).length - 1
+                  ? "mb-16"
+                  : ""
+              }
+            >
+              <div className="flex flex-wrap justify-center gap-8">
+                {techs.map((tech, index) => (
+                  <motion.div
+                    key={tech.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <TechnologyIcon
+                      name={tech.name}
+                      designation={tech.designation}
+                      color={tech.color}
+                      icon={tech.icon}
+                    />
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       </div>
     </section>
   );
