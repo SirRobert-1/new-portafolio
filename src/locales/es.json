@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "technologies": "Tecnologías",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "title": "Desarrollador Web Front End Jr.",
+    "description": "Creando experiencias web modernas e innovadoras",
+    "cta": "Contáctame"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "subtitle": "Desarrollador apasionado por crear soluciones innovadoras",
+    "intro": "Front End Web Developer Jr con enfoque en el diseño visual y la experiencia del usuario.",
+    "description": "Con una sólida formación en desarrollo web y experiencia en tecnologías modernas, me enfoco en crear interfaces intuitivas y atractivas. Me apasiona aprender nuevas tecnologías y aplicar las mejores prácticas de desarrollo.",
+    "specialties": "Mis especialidades incluyen:",
+    "specialty1": "Desarrollo de aplicaciones web con React y Next.js",
+    "specialty2": "Diseño responsivo y UI/UX",
+    "specialty3": "Integración de APIs y servicios externos",
+    "specialty4": "Optimización de rendimiento web",
+    "specialty5": "Gestión de contenido con CMS modernos",
+    "stats": {
+      "experience": {
+        "value": "2+",
+        "label": "Años de Experiencia"
+      },
+      "projects": {
+        "value": "5+",
+        "label": "Proyectos Completados"
+      },
+      "technologies": {
+        "value": "15+",
+        "label": "Tecnologías"
+      }
+    }
+  },
+  "technologies": {
+    "title": "Tecnologías",
+    "subtitle": "Stack tecnológico que domino",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Bases de datos",
+      "tools": "Herramientas",
+      "cloud": "Cloud & DevOps"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Algunos de mis trabajos destacados",
+    "viewDemo": "Ver Demo",
+    "viewCode": "Ver Código",
+    "technologies": "Tecnologías utilizadas",
+    "gallery": "Galería",
+    "description": "Descripción",
+    "noDemo": "Demo no disponible",
+    "noCode": "Código no disponible",
+    "closeModal": "Cerrar"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
+    "form": {
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Tu nombre completo"
+      },
+      "email": {
+        "label": "Correo Electrónico",
+        "placeholder": "tu@email.com"
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "Cuéntame sobre tu proyecto..."
+      },
+      "submit": "Enviar Mensaje",
+      "sending": "Enviando..."
+    },
+    "validation": {
+      "nameRequired": "El nombre es requerido",
+      "nameMin": "El nombre debe tener al menos 3 caracteres",
+      "nameMax": "El nombre no puede tener más de 50 caracteres",
+      "emailRequired": "El correo electrónico es requerido",
+      "emailInvalid": "Por favor ingresa un correo electrónico válido",
+      "messageRequired": "El mensaje es requerido",
+      "messageMin": "El mensaje debe tener al menos 10 caracteres",
+      "messageMax": "El mensaje no puede tener más de 500 caracteres"
+    },
+    "success": "¡Mensaje enviado exitosamente! Te responderé pronto.",
+    "error": "Hubo un error al enviar el mensaje. Por favor intenta de nuevo."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "madeWith": "Hecho con",
+    "by": "por"
+  },
+  "language": {
+    "spanish": "Español",
+    "english": "English",
+    "switch": "Cambiar idioma"
+  },
+  "meta": {
+    "title": "Portfolio - Desarrollador Front End Jr.",
+    "description": "Portfolio profesional de desarrollador front end especializado en React, Next.js y tecnologías modernas.",
+    "keywords": "desarrollador, front end, react, nextjs, portfolio, programador, ui/ux"
+  }
+}

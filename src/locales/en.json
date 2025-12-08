@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "technologies": "Technologies",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "title": "Front End Web Developer Jr.",
+    "description": "Building modern and innovative web experiences",
+    "cta": "Contact Me"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Developer passionate about creating innovative solutions",
+    "intro": "Front End Web Developer Jr focusing on visual design and user experience.",
+    "description": "With a solid background in web development and experience in modern technologies, I focus on creating intuitive and attractive interfaces. I'm passionate about learning new technologies and applying development best practices.",
+    "specialties": "My specialties include:",
+    "specialty1": "Web application development with React and Next.js",
+    "specialty2": "Responsive design and UI/UX",
+    "specialty3": "API and external services integration",
+    "specialty4": "Web performance optimization",
+    "specialty5": "Content management with modern CMS",
+    "stats": {
+      "experience": {
+        "value": "2+",
+        "label": "Years of Experience"
+      },
+      "projects": {
+        "value": "5+",
+        "label": "Completed Projects"
+      },
+      "technologies": {
+        "value": "15+",
+        "label": "Technologies"
+      }
+    }
+  },
+  "technologies": {
+    "title": "Technologies",
+    "subtitle": "Tech stack I master",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Databases",
+      "tools": "Tools",
+      "cloud": "Cloud & DevOps"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Some of my featured work",
+    "viewDemo": "View Demo",
+    "viewCode": "View Code",
+    "technologies": "Technologies used",
+    "gallery": "Gallery",
+    "description": "Description",
+    "noDemo": "Demo not available",
+    "noCode": "Code not available",
+    "closeModal": "Close"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Have a project in mind? Let's talk!",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your full name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell me about your project..."
+      },
+      "submit": "Send Message",
+      "sending": "Sending..."
+    },
+    "validation": {
+      "nameRequired": "Name is required",
+      "nameMin": "Name must be at least 3 characters",
+      "nameMax": "Name cannot exceed 50 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "messageRequired": "Message is required",
+      "messageMin": "Message must be at least 10 characters",
+      "messageMax": "Message cannot exceed 500 characters"
+    },
+    "success": "Message sent successfully! I'll get back to you soon.",
+    "error": "There was an error sending the message. Please try again."
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "madeWith": "Made with",
+    "by": "by"
+  },
+  "language": {
+    "spanish": "Español",
+    "english": "English",
+    "switch": "Switch language"
+  },
+  "meta": {
+    "title": "Portfolio - Front End Developer Jr.",
+    "description": "Professional portfolio of a front end developer specialized in React, Next.js and modern technologies.",
+    "keywords": "developer, front end, react, nextjs, portfolio, programmer, ui/ux"
+  }
+}
