@@ -8,13 +8,11 @@
  * Retorna: Array de objetos de tecnología con todos sus campos
  */
 export const getTechnologiesQuery = `
-  *[_type == "tecnologia"] | order(categoria asc, nombre asc) {
+  *[_type == "tecnologia"] {
     _id,
     nombre,
     "icono": icono.asset->url,
-    categoria,
     color,
-    descripcion
   }
 `;
 
@@ -24,26 +22,18 @@ export const getTechnologiesQuery = `
  * Retorna: Array de objetos de proyecto con tecnologías relacionadas
  */
 export const getFeaturedProjectsQuery = `
-  *[_type == "proyecto" && destacado == true] | order(orden asc) {
+  *[_type == "proyecto"] {
     _id,
     titulo,
-    descripcionCorta,
     descripcionLarga,
-    imagenPrincipal,
-    galeria,
     "tecnologias": tecnologias[]{
       _key,
       color,
       "nombre": tecnologia->nombre,
       "_id": tecnologia->_id,
       "icono": tecnologia->icono.asset->url,
-      "categoria": tecnologia->categoria
     },
     linkDemo,
-    linkGitHub,
-    fechaParticipacion,
-    orden,
-    destacado
   }
 `;
 
@@ -56,10 +46,7 @@ export const getProjectByIdQuery = (id) => `
   *[_type == "proyecto" && _id == "${id}"][0] {
     _id,
     titulo,
-    descripcionCorta,
     descripcionLarga,
-    imagenPrincipal,
-    galeria,
     "tecnologias": tecnologias[]{
       _key,
       color,
@@ -69,10 +56,6 @@ export const getProjectByIdQuery = (id) => `
       "categoria": tecnologia->categoria
     },
     linkDemo,
-    linkGitHub,
-    fechaParticipacion,
-    orden,
-    destacado
   }
 `;
 
@@ -98,26 +81,18 @@ export const getTechnologiesByCategoryQuery = `
  * Retorna: Array de todos los proyectos
  */
 export const getAllProjectsQuery = `
-  *[_type == "proyecto"] | order(orden asc, fechaParticipacion desc) {
+  *[_type == "proyecto"] {
     _id,
     titulo,
-    descripcionCorta,
     descripcionLarga,
-    imagenPrincipal,
-    galeria,
     "tecnologias": tecnologias[]{
       _key,
       color,
       "nombre": tecnologia->nombre,
       "_id": tecnologia->_id,
       "icono": tecnologia->icono.asset->url,
-      "categoria": tecnologia->categoria
     },
     linkDemo,
-    linkGitHub,
-    fechaParticipacion,
-    orden,
-    destacado
   }
 `;
 
