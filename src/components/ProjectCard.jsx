@@ -1,7 +1,4 @@
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
-import Image from "next/image";
-import { getProjectCardImageUrl } from "@/lib/imageUrl";
-import Link from "next/link";
 
 export default function ProjectCard({ project }) {
   // Obtener el nombre de la tecnología (puede ser string, objeto, o null)
@@ -11,9 +8,8 @@ export default function ProjectCard({ project }) {
   };
 
   return (
-    <CardContainer className="inter-var" containerClassName="py-10">
-      <Link href={`${project.linkDemo}`}>
-        <CardBody className="bg-neutral-100 dark:bg-neutral-900 relative group/card border-2 border-neutral-200 dark:border-neutral-800 w-auto sm:w-120 h-auto rounded-xl p-6">
+    <CardContainer className="inter-var" containerClassName="pt-5">
+        <CardBody className="bg-neutral-100 dark:bg-neutral-900 relative group/card border-2 border-neutral-200 dark:border-neutral-800 max-w-xl h-60 rounded-xl p-5">
           <CardItem
             translateZ="50"
             className="text-xl font-bold text-neutral-900 dark:text-white"
@@ -56,7 +52,6 @@ export default function ProjectCard({ project }) {
             </CardItem>
           </div>
         </CardBody>
-      </Link>
     </CardContainer>
   );
 }
