@@ -9,7 +9,7 @@ export default function ProjectCard({ project }) {
 
   return (
     <CardContainer className="inter-var" containerClassName="pt-5">
-        <CardBody className="bg-neutral-100 dark:bg-neutral-900 relative group/card border-2 border-neutral-200 dark:border-neutral-800 max-w-xl h-60 rounded-xl p-5">
+        <CardBody className="bg-neutral-100 dark:bg-neutral-900 relative group/card border-2 border-neutral-200 dark:border-neutral-800 w-full h-60 rounded-xl p-5">
           <CardItem
             translateZ="50"
             className="text-xl font-bold text-neutral-900 dark:text-white"
